@@ -1,0 +1,65 @@
+# ======================================================================
+# Default configuration of the extension "sp_guestbook"
+# ======================================================================
+plugin.tx_spguestbook {
+	settings {
+		# cat=Guestbook: General/settings/100; type=int; label=Storage page: Default storage PID
+		pages = 0
+
+		# cat=Guestbook: General/settings/110; type=int; label=List page: Page ID of the list view page
+		listPage = 0
+
+		# cat=Guestbook: General/settings/120; type=int; label=Form page: Page ID of the form page
+		formPage = 0
+
+		# cat=Guestbook: General/settings/130; type=string; label=Sorting order: Ordering of the entries in list view
+		ordering = desc
+
+		# cat=Guestbook: General/settings/140; type=string; label=Ordering field: Order results by this table field
+		orderingField = crdate
+
+		# cat=Guestbook: General/settings/150; type=options[, freeCap CAPTCHA (sr_freecap)=sr_freecap, reCAPTCHA (jm_recaptcha)=jm_recaptcha, Captcha Library (captcha)=captcha, MathGuard (mathguard)=mathguard]; label=Captcha support: Enable captcha support for selected extension
+		captchaSupport =
+
+		# cat=Guestbook: General/settings/160; type=boolean; label=Admin verification: Enable administrative verification of new entries
+		adminVerification =
+
+		# cat=Guestbook: General/settings/170; type=boolean; label=Hidden field check: Check hidden fields for any values to detect spam bots
+		hiddenFieldCheck = 1
+
+		# cat=Guestbook: General/settings/180; type=boolean; label=Referer check: Check HTTP_REFERER for current domain
+		refererCheck = 1
+
+		# cat=Guestbook: General/settings/190; type=int; label=Minimal elapsed time: Minimum time required to fill out the form (in seconds)
+		minElapsedTime = 1
+
+		# cat=Guestbook: General/settings/200; type=int; label=Entry count: Maximal allowed count of entries
+		entryCount = 3
+
+		# cat=Guestbook: General/settings/210; type=int; label=Waiting time: Waiting time if max count was reached (in minutes)
+		waitingTime = 60
+
+		# cat=Guestbook: General/settings/220; type=string; label=Email recipients: Send notification email to (separate multiple recipients with ",")
+		emailRecipients =
+
+		# cat=Guestbook: General/settings/230; type=string; label=Email sender: Sender email address (e.g. Contact form &lt;contact@your-domain.com&gt;)
+		emailSender =
+
+		# cat=Guestbook: General/settings/240; type=string; label=Email admin: Administrator email address
+		emailAdmin =
+
+		# cat=Guestbook: General/settings/250; type=string; label=Return path: Email address for return path
+		emailReturnPath =
+	}
+
+	view {
+		# cat=Guestbook: General/view/300; type=string; label=Path to template layouts
+		layoutRootPath = EXT:sp_guestbook/Resources/Private/Layouts/
+
+		# cat=Guestbook: General/view/310; type=string; label=Path to template partials
+		partialRootPath = EXT:sp_guestbook/Resources/Private/Partials/
+
+		# cat=Guestbook: General/view/320; type=string; label=Path to template root
+		templateRootPath = EXT:sp_guestbook/Resources/Private/Templates/
+	}
+}

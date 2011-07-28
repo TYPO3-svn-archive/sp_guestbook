@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_spguestbook_domain_model_entry</description>
+		<type>CSH</type>
+		<csh_table>tx_spguestbook_domain_model_entry</csh_table>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="name.description">Name of the author</label>
+			<label index="email.description">Email address of the author</label>
+			<label index="url.description">Website of the author</label>
+			<label index="location.description">City / country / office of the author</label>
+			<label index="content.description">Content of the entry</label>
+			<label index="note.description">Internal note</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="name.description">Name des Autors</label>
+			<label index="email.description">E-Mail Adresse des Autors</label>
+			<label index="url.description">Internetseite des Autors</label>
+			<label index="location.description">Stadt / Land / Büro des Autors</label>
+			<label index="content.description">Inhalt des Eintrags</label>
+			<label index="note.description">Interne Notiz</label>
+		</languageKey>
+	</data>
+</T3locallang>

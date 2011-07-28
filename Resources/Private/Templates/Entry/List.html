@@ -1,0 +1,21 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:flashMessages />
+	<f:if condition="{entries}">
+		<f:then>
+			<ul class="entries">
+				<f:for each="{entries}" as="entry">
+					<li>
+						<h4>{entry.name}</h4>
+						<f:format.html>{entry.content}</f:format.html>
+					</li>
+				</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<p><f:translate key="no_entries_found"/></p>
+		</f:else>
+	</f:if>
+	<p><f:link.action action="new"><f:translate key="create_new_entry"/></f:link.action></p>
+</f:section>

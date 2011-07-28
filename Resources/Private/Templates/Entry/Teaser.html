@@ -1,0 +1,16 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+  <f:flashMessages />
+  <f:if condition="{entry}">
+    <f:then>
+      <div class="teaser">
+        <f:format.html>{entry.content}</f:format.html>
+      </div>
+    </f:then>
+    <f:else>
+      <p><f:translate key="no_entry_found"/></p>
+    </f:else>
+  </f:if>
+  <p><f:link.action action="new"><f:translate key="create_new_entry"/></f:link.action></p>
+</f:section>

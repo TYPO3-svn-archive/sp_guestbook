@@ -1,0 +1,39 @@
+# ======================================================================
+# Default configuration of the extension "sp_guestbook"
+# ======================================================================
+plugin.tx_spguestbook {
+	## General settings
+	settings {
+		pages                     = {$plugin.tx_spguestbook.settings.pages}
+		listPage                  = {$plugin.tx_spguestbook.settings.listPage}
+		formPage                  = {$plugin.tx_spguestbook.settings.formPage}
+		ordering                  = {$plugin.tx_spguestbook.settings.ordering}
+		orderingField             = {$plugin.tx_spguestbook.settings.orderingField}
+
+		captchaSupport            = {$plugin.tx_spguestbook.settings.captchaSupport}
+		adminVerification         = {$plugin.tx_spguestbook.settings.adminVerification}
+		hiddenFieldCheck          = {$plugin.tx_spguestbook.settings.hiddenFieldCheck}
+		refererCheck              = {$plugin.tx_spguestbook.settings.refererCheck}
+		minElapsedTime            = {$plugin.tx_spguestbook.settings.minElapsedTime}
+		entryCount                = {$plugin.tx_spguestbook.settings.entryCount}
+		waitingTime               = {$plugin.tx_spguestbook.settings.waitingTime}
+
+		emailRecipients           = {$plugin.tx_spguestbook.settings.emailRecipients}
+		emailSender               = {$plugin.tx_spguestbook.settings.emailSender}
+		emailAdmin                = {$plugin.tx_spguestbook.settings.emailAdmin}
+		emailReturnPath           = {$plugin.tx_spguestbook.settings.emailReturnPath}
+	}
+
+	## View specific settings
+	view {
+		layoutRootPath            = {$plugin.tx_spguestbook.view.layoutRootPath}
+		partialRootPath           = {$plugin.tx_spguestbook.view.partialRootPath}
+		templateRootPath          = {$plugin.tx_spguestbook.view.templateRootPath}
+	}
+}
+
+
+## Include guestbook stylesheet
+page {
+	includeCSS.sp_guestbook = EXT:sp_guestbook/Resources/Public/Stylesheet/guestbook.css
+}

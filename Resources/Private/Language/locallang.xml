@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the frontend belonging to extension 'sp_guestbook'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_spguestbook_domain_model_entry">Guestbook entry</label>
+			<label index="tx_spguestbook_domain_model_entry.title">Title</label>
+			<label index="tx_spguestbook_domain_model_entry.content">Content</label>
+			<label index="tx_spguestbook_domain_model_user">Guestbook user</label>
+			<label index="tx_spguestbook_domain_model_user.name">Name</label>
+			<label index="tx_spguestbook_domain_model_user.email">Email</label>
+			<label index="tx_spguestbook_domain_model_user.url">URL</label>
+			<label index="newContentElement.wizardItem.title">Guestbook</label>
+			<label index="newContentElement.wizardItem.description">Adds a guestbook to current page.</label>
+
+			<label index="no_entries_found">No entries found.</label>
+			<label index="no_entry_found">No entry found.</label>
+			<label index="create_new_entry">Create new entry.</label>
+			<label index="captcha">Captcha</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_spguestbook_domain_model_entry">Gästebuch-Eintrag</label>
+			<label index="tx_spguestbook_domain_model_entry.title">Titel</label>
+			<label index="tx_spguestbook_domain_model_entry.content">Inhalt</label>
+			<label index="tx_spguestbook_domain_model_user">Gästebuch-Benutzer</label>
+			<label index="tx_spguestbook_domain_model_user.name">Name</label>
+			<label index="tx_spguestbook_domain_model_user.email">E-Mail</label>
+			<label index="tx_spguestbook_domain_model_user.url">URL</label>
+			<label index="newContentElement.wizardItem.title">Gästebuch</label>
+			<label index="newContentElement.wizardItem.description">Fügt der aktuellen Seite ein Gästebuch hinzu.</label>
+
+			<label index="no_entries_found">Keine Einträge gefunden.</label>
+			<label index="no_entry_found">Kein Eintrag gefunden.</label>
+			<label index="create_new_entry">Neuen Eintrag erstellen.</label>
+			<label index="captcha">Captcha</label>
+		</languageKey>
+	</data>
+</T3locallang>

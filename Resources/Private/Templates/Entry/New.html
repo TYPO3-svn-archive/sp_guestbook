@@ -1,0 +1,11 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:flashMessages />
+	<f:render partial="FormErrors" />
+
+	<f:form method="post" action="create" name="newEntry" object="{newEntry}">
+	<f:render partial="Entry/FormFields" />
+		<f:form.submit value="Create new" />
+	</f:form>
+</f:section>

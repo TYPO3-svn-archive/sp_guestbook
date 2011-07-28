@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'sp_guestbook'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_spguestbook_domain_model_entry">Guestbook entry</label>
+			<label index="tx_spguestbook_domain_model_entry.name">Name</label>
+			<label index="tx_spguestbook_domain_model_entry.email">Email address</label>
+			<label index="tx_spguestbook_domain_model_entry.url">Website</label>
+			<label index="tx_spguestbook_domain_model_entry.location">Location</label>
+			<label index="tx_spguestbook_domain_model_entry.content">Content</label>
+			<label index="tx_spguestbook_domain_model_entry.note">Note</label>
+			<label index="tt_content.flexform_pi1.s_def">General</label>
+			<label index="tt_content.flexform_pi1.s_def.type">View type</label>
+			<label index="tt_content.flexform_pi1.s_def.type.list">List</label>
+			<label index="tt_content.flexform_pi1.s_def.type.teaser">Teaser</label>
+			<label index="tt_content.flexform_pi1.s_def.type.form">Form</label>
+			<label index="tt_content.flexform_pi1.s_def.pages">Guestbook entries</label>
+			<label index="tt_content.flexform_pi1.s_def.listPage">List page</label>
+			<label index="tt_content.flexform_pi1.s_def.formPage">Form page</label>
+			<!-- <label index="tt_content.flexform_pi1.s_security">Security</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport">Captcha support</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.none"></label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.freecap">freeCap CAPTCHA (sr_freecap)</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.recaptcha">reCAPTCHA (jm_recaptcha)</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.captcha">Captcha Library (captcha)</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.mathguard">MathGuard (mathguard)</label>
+			<label index="tt_content.flexform_pi1.s_security.adminVerification">Admin verification</label>
+			<label index="tt_content.flexform_pi1.s_security.hiddenFieldsCheck">Hidden fields check</label>
+			<label index="tt_content.flexform_pi1.s_security.refererCheck">Referer check</label>
+			<label index="tt_content.flexform_pi1.s_security.minElapsedTime">Minimum time required to fill out the form (in seconds)</label>
+			<label index="tt_content.flexform_pi1.s_security.messageCount">Maximal allowed count of entries</label>
+			<label index="tt_content.flexform_pi1.s_security.waitingTime">Waiting time if max count was reached (in minutes)</label>
+			<label index="tt_content.flexform_pi1.s_email">Email</label>
+			<label index="tt_content.flexform_pi1.s_email.emailRecipients">Send notification email to (separate multiple recipients with ",")</label>
+			<label index="tt_content.flexform_pi1.s_email.emailSender">Sender email address (e.g. Contact form &lt;contact@your-domain.com&gt;)</label>
+			<label index="tt_content.flexform_pi1.s_email.emailAdmin">Administrator email address</label>
+			<label index="tt_content.flexform_pi1.s_email.emailReturnPath">Email address for return path</label> -->
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_spguestbook_domain_model_entry">Gästebuch-Eintrag</label>
+			<label index="tx_spguestbook_domain_model_entry.name">Name</label>
+			<label index="tx_spguestbook_domain_model_entry.email">E-Mail Adresse</label>
+			<label index="tx_spguestbook_domain_model_entry.url">Internetseite</label>
+			<label index="tx_spguestbook_domain_model_entry.location">Ort</label>
+			<label index="tx_spguestbook_domain_model_entry.content">Inhalt</label>
+			<label index="tx_spguestbook_domain_model_entry.note">Notiz</label>
+			<label index="tt_content.flexform_pi1.s_def">Allgemein</label>
+			<label index="tt_content.flexform_pi1.s_def.type">Ansicht</label>
+			<label index="tt_content.flexform_pi1.s_def.type.list">Liste</label>
+			<label index="tt_content.flexform_pi1.s_def.type.teaser">Teaser</label>
+			<label index="tt_content.flexform_pi1.s_def.type.form">Formular</label>
+			<label index="tt_content.flexform_pi1.s_def.pages">Gästebuch-Einträge</label>
+			<label index="tt_content.flexform_pi1.s_def.listPage">Listen-Seite</label>
+			<label index="tt_content.flexform_pi1.s_def.formPage">Formular-Seite</label>
+			<!-- <label index="tt_content.flexform_pi1.s_security">Sicherheit</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport">Captcha-Unterstützung</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.none"></label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.freecap">freeCap CAPTCHA (sr_freecap)</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.recaptcha">reCAPTCHA (jm_recaptcha)</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.captcha">Captcha Library (captcha)</label>
+			<label index="tt_content.flexform_pi1.s_security.captchaSupport.mathguard">MathGuard (mathguard)</label>
+			<label index="tt_content.flexform_pi1.s_security.adminVerification">Aministrator-Verifizierung</label>
+			<label index="tt_content.flexform_pi1.s_security.hiddenFieldsCheck">Prüfung mit versteckten Feldern</label>
+			<label index="tt_content.flexform_pi1.s_security.refererCheck">Referer prüfen</label>
+			<label index="tt_content.flexform_pi1.s_security.minElapsedTime">Minimale erforderliche Zeit zum Ausfüllen des Formulars (in Sekunden)</label>
+			<label index="tt_content.flexform_pi1.s_security.messageCount">Maximale Anzahl erlaubter Sendungen</label>
+			<label index="tt_content.flexform_pi1.s_security.waitingTime">Wartezeit wenn maximale Anzahl erreicht wurde (in Minuten)</label>
+			<label index="tt_content.flexform_pi1.s_email">E-Mail</label>
+			<label index="tt_content.flexform_pi1.s_email.emailRecipients">Sende Benachrichtigung an (mehrere Empfänger durch "," trennen)</label>
+			<label index="tt_content.flexform_pi1.s_email.emailSender">Absender E-Mail (z.B. Kontaktformular &lt;contact@your-domain.com&gt;)</label>
+			<label index="tt_content.flexform_pi1.s_email.emailAdmin">Administrator E-Mail</label>
+			<label index="tt_content.flexform_pi1.s_email.emailReturnPath">Return-Path E-Mail</label> -->
+		</languageKey>
+	</data>
+</T3locallang>

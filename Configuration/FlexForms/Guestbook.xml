@@ -1,0 +1,261 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+		<langChildren>0</langChildren>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<onChange>reload</onChange>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def.type</label>
+							<config>
+								<type>select</type>
+								<size>1</size>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def.type.list</numIndex>
+										<numIndex index="1">Entry->list;Entry->new;Entry->create</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def.type.teaser</numIndex>
+										<numIndex index="1">Entry->teaser;Entry->new;Entry->create</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def.type.form</numIndex>
+										<numIndex index="1">Entry->new;Entry->create;Entry->list</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+					<settings.pages>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def.pages</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages,tx_spguestbook_domain_model_entry</allowed>
+								<size>5</size>
+								<maxitems>50</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</settings.pages>
+					<settings.listPage>
+						<TCEforms>
+							<displayCond>FIELD:switchableControllerActions:=:Entry->new;Entry->create;Entry->list</displayCond>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def.listPage</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</settings.listPage>
+					<settings.formularPage>
+						<TCEforms>
+							<displayCond>FIELD:switchableControllerActions:IN:Entry->list;Entry->new;Entry->create,Entry->teaser;Entry->new;Entry->create,</displayCond>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_def.formPage</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</settings.formularPage>
+				</el>
+			</ROOT>
+		</sDEF>
+		<!-- <sSECURITY>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.captchaSupport>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.captchaSupport</label>
+							<config>
+								<type>select</type>
+								<default></default>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.captchaSupport.none</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.captchaSupport.freecap</numIndex>
+										<numIndex index="1">sr_freecap</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.captchaSupport.recaptcha</numIndex>
+										<numIndex index="1">jm_recaptcha</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.captchaSupport.captcha</numIndex>
+										<numIndex index="1">captcha</numIndex>
+									</numIndex>
+									<numIndex index="4" type="array">
+										<numIndex index="0">LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.captchaSupport.mathguard</numIndex>
+										<numIndex index="1">mathguard</numIndex>
+									</numIndex>
+								</items>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+							</config>
+						</TCEforms>
+					</settings.captchaSupport>
+					<settings.adminVerification>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.adminVerification</label>
+							<config>
+								<type>check</type>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.adminVerification>
+					<settings.hiddenFieldCheck>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.hiddenFieldsCheck</label>
+							<config>
+								<type>check</type>
+								<default>1</default>
+							</config>
+						</TCEforms>
+					</settings.hiddenFieldCheck>
+					<settings.refererCheck>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.refererCheck</label>
+							<config>
+								<type>check</type>
+								<default>1</default>
+							</config>
+						</TCEforms>
+					</settings.refererCheck>
+					<settings.minElapsedTime>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.minElapsedTime</label>
+							<config>
+								<type>input</type>
+								<eval>trim,int</eval>
+								<default>1</default>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</settings.minElapsedTime>
+					<settings.messageCount>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.messageCount</label>
+							<config>
+								<type>input</type>
+								<eval>trim,int</eval>
+								<default>10</default>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</settings.messageCount>
+					<settings.waitingTime>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_security.waitingTime</label>
+							<config>
+								<type>input</type>
+								<eval>trim,int</eval>
+								<default>60</default>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</settings.waitingTime>
+				</el>
+			</ROOT>
+		</sSECURITY> -->
+		<!-- <sEMAIL>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_email</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.emailRecipients>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_email.emailRecipients</label>
+							<config>
+								<type>input</type>
+								<eval>trim</eval>
+								<default></default>
+								<size>40</size>
+							</config>
+						</TCEforms>
+					</settings.emailRecipients>
+					<settings.emailSender>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_email.emailSender</label>
+							<config>
+								<type>input</type>
+								<eval>trim</eval>
+								<default></default>
+								<size>40</size>
+							</config>
+						</TCEforms>
+					</settings.emailSender>
+					<settings.emailAdmin>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_email.emailAdmin</label>
+							<config>
+								<type>input</type>
+								<eval>trim</eval>
+								<default></default>
+								<size>40</size>
+							</config>
+						</TCEforms>
+					</settings.emailAdmin>
+					<settings.emailReturnPath>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tt_content.flexform_pi1.s_email.emailReturnPath</label>
+							<config>
+								<type>input</type>
+								<eval>trim</eval>
+								<default></default>
+								<size>40</size>
+							</config>
+						</TCEforms>
+					</settings.emailReturnPath>
+				</el>
+			</ROOT>
+		</sEMAIL> -->
+	</sheets>
+</T3DataStructure>
