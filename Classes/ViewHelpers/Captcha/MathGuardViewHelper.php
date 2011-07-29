@@ -26,15 +26,33 @@
 	/**
 	 * View helper for the "mathguard" extension
 	 */
-	class Tx_SpGuestbook_ViewHelpers_MathGuardViewHelper extends Tx_SpGuestbook_ViewHelpers_AbstractCaptchaViewHelper {
+	class Tx_SpGuestbook_ViewHelpers_Captcha_MathGuardViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
 
 		/**
-		 * Returns the html code for the captcha field
-		 *
-		 * @return string Html content
+		 * @var string Partial name
 		 */
-		public function render() {
-			return '';
+		protected $partialName = 'Captcha/MathGuard';
+
+		/**
+		 * @var string Extension key
+		 */
+		protected $extensionName = 'mathguard';
+
+
+		/**
+		 * Returns the captcha object
+		 *
+		 * @return object Captcha object
+		 */
+		public function getCaptcha() {
+				// Get mathguard content
+			t3lib_div::requireOnce(t3lib_extMgm::extPath('mathguard') . 'class.tx_mathguard.php');
+			$mathguard = t3lib_div::makeInstance('tx_mathguard');
+			$content   = $mathguard->getCaptcha();
+			unset($mathguard);
+
+				// Build captcha object
+			return (object) array('html' => $content);
 		}
 
 	}

@@ -26,15 +26,39 @@
 	/**
 	 * View helper for the "sr_freecap" extension
 	 */
-	class Tx_SpGuestbook_ViewHelpers_FreeCapViewHelper extends Tx_SpGuestbook_ViewHelpers_AbstractCaptchaViewHelper {
+	class Tx_SpGuestbook_ViewHelpers_Captcha_FreeCapViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
 
 		/**
-		 * Returns the html code for the captcha field
-		 *
-		 * @return string Html content
+		 * @var string Partial name
 		 */
-		public function render() {
-			return '';
+		protected $partialName = 'Captcha/FreeCap';
+
+		/**
+		 * @var string Extension key
+		 */
+		protected $extensionName = 'sr_freecap';
+
+
+		/**
+		 * Returns the captcha object
+		 *
+		 * @return object Captcha object
+		 */
+		public function getCaptcha() {
+				// Get freecap markers
+			t3lib_div::requireOnce(t3lib_extMgm::extPath('sr_freecap') . 'pi2/class.tx_srfreecap_pi2.php');
+			$freecap = t3lib_div::makeInstance('tx_srfreecap_pi2');
+			$markers = $freecap->makeCaptcha();
+			unset($freecap);
+
+				// Build captcha object
+			$captcha = (object) array(
+				'image'      => $markers['###SR_FREECAP_IMAGE###'],
+				'cantRead'   => $markers['###SR_FREECAP_CANT_READ###'],
+				'accessible' => $markers['###SR_FREECAP_ACCESSIBLE###'],
+			);
+
+			return $captcha;
 		}
 
 	}

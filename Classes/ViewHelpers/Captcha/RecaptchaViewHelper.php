@@ -26,15 +26,33 @@
 	/**
 	 * View helper for the "jm_recaptcha" extension
 	 */
-	class Tx_SpGuestbook_ViewHelpers_RecaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_AbstractCaptchaViewHelper {
+	class Tx_SpGuestbook_ViewHelpers_Captcha_RecaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
 
 		/**
-		 * Returns the html code for the captcha field
-		 *
-		 * @return string Html content
+		 * @var string Partial name
 		 */
-		public function render() {
-			return '';
+		protected $partialName = 'Captcha/Recaptcha';
+
+		/**
+		 * @var string Extension key
+		 */
+		protected $extensionName = 'jm_recaptcha';
+
+
+		/**
+		 * Returns the captcha object
+		 *
+		 * @return object Captcha object
+		 */
+		public function getCaptcha() {
+				// Get recaptcha content
+			t3lib_div::requireOnce(t3lib_extMgm::extPath('jm_recaptcha') . 'class.tx_jmrecaptcha.php');
+			$recaptcha = t3lib_div::makeInstance('tx_jmrecaptcha');
+			$content = $recaptcha->getReCaptcha();
+			unset($recaptcha);
+
+				// Build captcha object
+			return (object) array('html' => $content);
 		}
 
 	}

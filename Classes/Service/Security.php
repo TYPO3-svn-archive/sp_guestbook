@@ -43,8 +43,56 @@
 		}
 
 
+		/**
+		 * Check captcha input
+		 *
+		 * @param string $extensionName Extension key of the captcha extension
+		 * @return FALSE if the test failes
+		 */
+		protected function checkCaptcha ($extensionName) {
+			if (empty($extensionName)) {
+				return TRUE;
+			}
 
+			/*$sInput  = (!empty($this->aGP['captcha'])) ? $this->aGP['captcha'] : '';
+			$bResult = TRUE;
 
+			if (!strlen($sExtKey) || !t3lib_extMgm::isLoaded($sExtKey)) {
+				return TRUE;
+			}
+
+			// Check captcha
+			switch ($sExtKey) {
+				case 'sr_freecap' :
+					if (!strlen($sInput)) {
+						return FALSE;
+					}
+					t3lib_div::requireOnce(t3lib_extMgm::extPath($sExtKey) . 'pi2/class.tx_srfreecap_pi2.php');
+					$oCaptcha = t3lib_div::makeInstance('tx_srfreecap_pi2');
+					return $oCaptcha->checkWord($sInput);
+					break;
+				case 'jm_recaptcha' :
+					t3lib_div::requireOnce(t3lib_extMgm::extPath($sExtKey) . 'class.tx_jmrecaptcha.php');
+					$oCaptcha  = t3lib_div::makeInstance('tx_jmrecaptcha');
+					$aResponse = $oCaptcha->validateReCaptcha();
+					return (isset($aResponse['verified']) && (bool) $aResponse['verified']);
+					break;
+				case 'captcha' :
+					session_start();
+					$sCaptcha = $_SESSION['tx_captcha_string'];
+					return ($sInput === $sCaptcha);
+					break;
+				case 'mathguard' :
+					t3lib_div::requireOnce(t3lib_extMgm::extPath($sExtKey) . 'class.tx_mathguard.php');
+					$oCaptcha = t3lib_div::makeInstance('tx_mathguard');
+					return $oCaptcha->validateCaptcha();
+					break;
+				default:
+					return FALSE;
+			}*/
+
+			return FALSE;
+		}
 
 	}
 ?>

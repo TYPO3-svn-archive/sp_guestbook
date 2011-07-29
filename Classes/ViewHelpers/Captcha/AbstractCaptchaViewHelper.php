@@ -26,7 +26,43 @@
 	/**
 	 * Abstract base class for all captcha view helpers
 	 */
-	abstract class Tx_SpGuestbook_ViewHelpers_AbstractCaptchaViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
-		
+	abstract class Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_AbstractViewHelper {
+
+		/**
+		 * @var string Partial name
+		 */
+		abstract protected $partialName;
+
+		/**
+		 * @var string Extension key
+		 */
+		abstract protected $extensionName;
+
+
+		/**
+		 * Returns the html code for the captcha field
+		 *
+		 * @return string Html content
+		 */
+		protected function render() {
+				// Check if extension is loaded
+			if (empty($this->settings['captchaSupport']) || !t3lib_extMgm::isLoaded($this->settings['captchaSupport'])) {
+				throw new Exception('Extension sp_guestbook: Defined captcha extension is not loaded', 1308305987);
+			}
+
+				// Check if view helper is allowed to render defined extension
+			if (empty($this->extensionName) || $this->settings['captchaSupport'] !== $this->extensionName) {
+				throw new Exception('Extension sp_guestbook: View helper is not allowed to render defined captcha extension', 1308305988);
+			}
+
+				// Check if a partial name was defined in view helper
+			if (empty($this->partialName)) {
+				throw new Exception('Extension sp_guestbook: No partial found to render', 1308305989);
+			}
+
+			$captcha = $this->getCaptcha();
+			return parent::renderPartial($this->partialName, '', array('captcha' => $captcha));
+		}
+
 	}
 ?>

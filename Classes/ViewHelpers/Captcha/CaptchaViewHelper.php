@@ -26,15 +26,27 @@
 	/**
 	 * View helper for the "captcha" extension
 	 */
-	class Tx_SpGuestbook_ViewHelpers_CaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_AbstractCaptchaViewHelper {
+	class Tx_SpGuestbook_ViewHelpers_Captcha_CaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
 
 		/**
-		 * Returns the html code for the captcha field
-		 *
-		 * @return string Html content
+		 * @var string Partial name
 		 */
-		public function render() {
-			return '';
+		protected $partialName = 'Captcha/Captcha';
+
+		/**
+		 * @var string Extension key
+		 */
+		protected $extensionName = 'captcha';
+
+
+		/**
+		 * Returns the captcha object
+		 *
+		 * @return object Captcha object
+		 */
+		public function getCaptcha() {
+			$fileName = t3lib_extMgm::siteRelPath('captcha') . 'captcha/captcha.php';
+			return (object) array('image' => $fileName);
 		}
 
 	}
