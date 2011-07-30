@@ -7,6 +7,7 @@
 		'tx_spguestbook_domain_repository_entryrepository'             => $extensionClassesPath . 'Domain/Repository/EntryRepository.php',
 		'tx_spguestbook_service_email'                                 => $extensionClassesPath . 'Service/Email.php',
 		'tx_spguestbook_service_security'                              => $extensionClassesPath . 'Service/Security.php',
+		'tx_spguestbook_utility_session'                               => $extensionClassesPath . 'Utility/Session.php',
 		'tx_spguestbook_utility_typoScript'                            => $extensionClassesPath . 'Utility/TypoScript.php',
 		'tx_spguestbook_viewhelpers_abstractviewhelper'                => $extensionClassesPath . 'ViewHelpers/AbstractViewHelper.php',
 		'tx_spguestbook_viewhelpers_captcha_abstractcaptchaviewhelper' => $extensionClassesPath . 'ViewHelpers/Catpcha/AbstractCaptchaViewHelper.php',
