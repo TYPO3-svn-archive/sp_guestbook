@@ -24,29 +24,31 @@
 	 ********************************************************************/
 
 	/**
-	 * View helper for the "captcha" extension
+	 * The "captcha" extension class
 	 */
-	class Tx_SpGuestbook_ViewHelpers_Captcha_CaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
+	class Tx_SpGuestbook_Captcha_Captcha implements Tx_SpGuestbook_Captcha_CaptchaInterface {
 
 		/**
-		 * @var string Partial name
-		 */
-		protected $partialName = 'Captcha/Captcha';
-
-		/**
-		 * @var string Extension key
-		 */
-		protected $extensionName = 'captcha';
-
-
-		/**
-		 * Returns the captcha object
+		 * Returns the template variables for captcha field
 		 *
-		 * @return object Captcha object
+		 * @return array Template variables
 		 */
-		public function getCaptcha() {
+		public function getTemplateVariables() {
 			$fileName = t3lib_extMgm::siteRelPath('captcha') . 'captcha/captcha.php';
-			return (object) array('image' => $fileName);
+			return array('image' => $fileName);
+		}
+
+
+		/**
+		 * Checks if the input is identical to captcha value
+		 * 
+		 * @param string $inputValue Content of the captcha field
+		 * @return boolean TRUE if values are identical
+		 */
+		public function checkInput($inputValue) {
+			session_start();
+			$captcha = $_SESSION['tx_captcha_string'];
+			return ($captcha === $inputValue);
 		}
 
 	}

@@ -23,36 +23,46 @@
 	 *  This copyright notice MUST APPEAR in all copies of the script!
 	 ********************************************************************/
 
+	require_once(t3lib_extMgm::extPath('mathguard') . 'class.tx_mathguard.php');
+
 	/**
-	 * View helper for the "jm_recaptcha" extension
+	 * The "mathguard" extension class
 	 */
-	class Tx_SpGuestbook_ViewHelpers_Captcha_RecaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
+	class Tx_SpGuestbook_Captcha_Mathguard implements Tx_SpGuestbook_Captcha_CaptchaInterface {
 
 		/**
-		 * @var string Partial name
+		 * @var object Instance of the captcha extension
 		 */
-		protected $partialName = 'Captcha/Recaptcha';
+		protected $captcha;
+
 
 		/**
-		 * @var string Extension key
+		 * Initialize class
 		 */
-		protected $extensionName = 'jm_recaptcha';
+		public function __construct() {
+			$this->captcha = t3lib_div::makeInstance('tx_mathguard');
+		}
 
 
 		/**
-		 * Returns the captcha object
+		 * Returns the template variables for captcha field
 		 *
-		 * @return object Captcha object
+		 * @return array Template variables
 		 */
-		public function getCaptcha() {
-				// Get recaptcha content
-			t3lib_div::requireOnce(t3lib_extMgm::extPath('jm_recaptcha') . 'class.tx_jmrecaptcha.php');
-			$recaptcha = t3lib_div::makeInstance('tx_jmrecaptcha');
-			$content = $recaptcha->getReCaptcha();
-			unset($recaptcha);
+		public function getTemplateVariables() {
+			$content = $this->captcha->getCaptcha();
+			return array('html' => $content);
+		}
 
-				// Build captcha object
-			return (object) array('html' => $content);
+
+		/**
+		 * Checks if the input is identical to captcha value
+		 * 
+		 * @param string $inputValue Content of the captcha field
+		 * @return boolean TRUE if values are identical
+		 */
+		public function checkInput($inputValue) {
+			return (bool) $this->captcha->validateCaptcha();
 		}
 
 	}

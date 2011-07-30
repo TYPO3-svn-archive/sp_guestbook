@@ -24,36 +24,25 @@
 	 ********************************************************************/
 
 	/**
-	 * View helper for the "mathguard" extension
+	 * Interface for captcha classes
 	 */
-	class Tx_SpGuestbook_ViewHelpers_Captcha_MathGuardViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
+	interface Tx_SpGuestbook_Captcha_CaptchaInterface extends t3lib_Singleton {
 
 		/**
-		 * @var string Partial name
-		 */
-		protected $partialName = 'Captcha/MathGuard';
-
-		/**
-		 * @var string Extension key
-		 */
-		protected $extensionName = 'mathguard';
-
-
-		/**
-		 * Returns the captcha object
+		 * Returns the template variables for captcha field
 		 *
-		 * @return object Captcha object
+		 * @return array Template variables
 		 */
-		public function getCaptcha() {
-				// Get mathguard content
-			t3lib_div::requireOnce(t3lib_extMgm::extPath('mathguard') . 'class.tx_mathguard.php');
-			$mathguard = t3lib_div::makeInstance('tx_mathguard');
-			$content   = $mathguard->getCaptcha();
-			unset($mathguard);
+		public function getTemplateVariables();
 
-				// Build captcha object
-			return (object) array('html' => $content);
-		}
+
+		/**
+		 * Checks if the input is identical to captcha value
+		 * 
+		 * @param string $inputValue Content of the captcha field
+		 * @return boolean TRUE if values are identical
+		 */
+		public function checkInput($inputValue);
 
 	}
 ?>

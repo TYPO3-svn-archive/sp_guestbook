@@ -23,28 +23,47 @@
 	 *  This copyright notice MUST APPEAR in all copies of the script!
 	 ********************************************************************/
 
+	require_once(t3lib_extMgm::extPath('jm_recaptcha') . 'class.tx_jmrecaptcha.php');
+
 	/**
-	 * Abstract base class for all view helpers
+	 * The "jm_recaptcha" extension class
 	 */
-	abstract class Tx_SpGuestbook_ViewHelpers_AbstractViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+	class Tx_SpGuestbook_Captcha_JmRecaptcha implements Tx_SpGuestbook_Captcha_CaptchaInterface {
 
 		/**
-		 * Renders a partial
-		 *
-		 * @param string $partial The partial name
-		 * @param string $section The section name if any
-		 * @param array $arguments The variables for the template
-		 * @return string
+		 * @var object Instance of the captcha extension
 		 */
-		protected function renderPartial($partial, $section = '', array $arguments = array()) {
-			$variables = $this->templateVariableContainer->getAll();
-			if (!is_array($variables)) {
-				$variables = array();
-			}
-			if (!empty($arguments)) {
-				$variables = Tx_Extbase_Utility_Arrays::arrayMergeRecursiveOverrule($variables, $arguments);
-			}
-			return $this->viewHelperVariableContainer->getView()->renderPartial($partial, $section, $variables);
+		protected $captcha;
+
+
+		/**
+		 * Initialize class
+		 */
+		public function __construct() {
+			$this->captcha = t3lib_div::makeInstance('tx_jmrecaptcha');
+		}
+
+
+		/**
+		 * Returns the template variables for captcha field
+		 *
+		 * @return array Template variables
+		 */
+		public function getTemplateVariables() {
+			$content = $this->captcha->getReCaptcha();
+			return array('html' => $content);
+		}
+
+
+		/**
+		 * Checks if the input is identical to captcha value
+		 * 
+		 * @param string $inputValue Content of the captcha field
+		 * @return boolean TRUE if values are identical
+		 */
+		public function checkInput($inputValue) {
+			$response = $this->captcha->validateReCaptcha();
+			return !empty($response['verified']);
 		}
 
 	}

@@ -24,41 +24,34 @@
 	 ********************************************************************/
 
 	/**
-	 * View helper for the "sr_freecap" extension
+	 * Validator for input of a captcha field
 	 */
-	class Tx_SpGuestbook_ViewHelpers_Captcha_FreeCapViewHelper extends Tx_SpGuestbook_ViewHelpers_Captcha_AbstractCaptchaViewHelper {
+	class Tx_SpGuestbook_Validators_CaptchaValidator extends Tx_Extbase_Validation_Validator_AbstractValidator {
 
 		/**
-		 * @var string Partial name
+		 * @var Tx_Extbase_Object_ObjectManager
 		 */
-		protected $partialName = 'Captcha/FreeCap';
-
-		/**
-		 * @var string Extension key
-		 */
-		protected $extensionName = 'sr_freecap';
+		protected $objectManager;
 
 
 		/**
-		 * Returns the captcha object
-		 *
-		 * @return object Captcha object
+		 * @param Tx_Extbase_Object_ObjectManager $objectManager
+		 * @return void
 		 */
-		public function getCaptcha() {
-				// Get freecap markers
-			t3lib_div::requireOnce(t3lib_extMgm::extPath('sr_freecap') . 'pi2/class.tx_srfreecap_pi2.php');
-			$freecap = t3lib_div::makeInstance('tx_srfreecap_pi2');
-			$markers = $freecap->makeCaptcha();
-			unset($freecap);
+		public function injectObjectManager(Tx_Extbase_Object_ObjectManager $objectManager) {
+			$this->objectManager = $objectManager;
+		}
 
-				// Build captcha object
-			$captcha = (object) array(
-				'image'      => $markers['###SR_FREECAP_IMAGE###'],
-				'cantRead'   => $markers['###SR_FREECAP_CANT_READ###'],
-				'accessible' => $markers['###SR_FREECAP_ACCESSIBLE###'],
-			);
 
-			return $captcha;
+		/**
+		 * Checks whether the captcha field input is valid or not
+		 * 
+		 * @param string $value Input value
+		 * @return boolean TRUE if input is valid
+		 */
+		public function isValid($value) {
+			$captchaManager = $this->objectManager->get('Tx_SpGuestbook_Captcha_CaptchaManager');
+			return (bool) $captchaManager->getCaptcha()->checkInput($value);
 		}
 
 	}

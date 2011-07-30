@@ -60,58 +60,6 @@
 
 
 		/**
-		 * Check captcha input
-		 *
-		 * @param string $extensionName Extension key of the captcha extension
-		 * @param string $captchaValue Input of the captcha field
-		 * @return FALSE if the test failes
-		 */
-		public function checkCaptcha ($extensionName, $captchaValue) {
-			if (empty($extensionName) || empty($captchaValue)) {
-				throw new Exception('Extension sp_guestbook: Cant check captcha without extension name or captcha value', 1308305990);
-			}
-
-				// Check if extension is loaded
-			if (!t3lib_extMgm::isLoaded($extensionName)) {
-				throw new Exception('Extension sp_guestbook: Defined captcha extension is not loaded', 1308305991);
-			}
-
-				// Check captcha
-			$result = FALSE;
-			switch ($extensionName) {
-				case 'sr_freecap' :
-					t3lib_div::requireOnce(t3lib_extMgm::extPath($extensionName) . 'pi2/class.tx_srfreecap_pi2.php');
-					$freecap   = t3lib_div::makeInstance('tx_srfreecap_pi2');
-					$result    = $freecap->checkWord($captchaValue);
-					unset($freecap);
-					break;
-				case 'jm_recaptcha' :
-					t3lib_div::requireOnce(t3lib_extMgm::extPath($extensionName) . 'class.tx_jmrecaptcha.php');
-					$recaptcha = t3lib_div::makeInstance('tx_jmrecaptcha');
-					$response  = $recaptcha->validateReCaptcha();
-					$result    = !empty($response['verified']);
-					unset($recaptcha);
-					break;
-				case 'captcha' :
-					session_start();
-					$captcha   = $_SESSION['tx_captcha_string'];
-					$result    = ($captcha === $captchaValue);
-					break;
-				case 'mathguard' :
-					t3lib_div::requireOnce(t3lib_extMgm::extPath($extensionName) . 'class.tx_mathguard.php');
-					$mathguard = t3lib_div::makeInstance('tx_mathguard');
-					$result    = $mathguard->validateCaptcha();
-					unset($mathguard);
-					break;
-				default:
-					throw new Exception('Extension sp_guestbook: No check implemented for defined captcha extension', 1308305992);
-			}
-
-			return (bool) $result;
-		}
-
-
-		/**
 		 * Check referer
 		 * 
 		 * @return boolean TRUE if refer is valid
