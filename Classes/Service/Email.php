@@ -83,6 +83,11 @@
 		 */
 		protected $emailFormat = 'html';
 
+		/**
+		 * @var string
+		 */
+		protected $templateSchema = 'Email/@name.@format';
+
 
 		/**
 		 * @param Tx_Extbase_Object_ObjectManager $objectManager
@@ -247,30 +252,32 @@
 		/**
 		 * Renders given template
 		 *
-		 * @param string $templateName Name of the template
+		 * @param string $name Name of the template
 		 * @param array $variables Template variables
 		 * @return string Rendered template
 		 */
-		protected function renderTemplate($templateName = '', array $variables = array()) {
-			$templateName = (!empty($templateName)  ? $templateName  : $this->templateName);
-			if (empty($templateName)) {
+		protected function renderTemplate($name = '', array $variables = array()) {
+			$name = (!empty($name) ? $name : $this->templateName);
+			if (empty($name)) {
 				return '';
 			}
 
 				// Get configuration
 			if (empty($this->configuration)) {
-				$this->configuration = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+				$this->configuration = $this->configurationManager->getConfiguration(
+					Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
+				);
 			}
 
 				// Get template file name
-			$templateRootPath = t3lib_div::getFileAbsFileName($this->configuration['view']['templateRootPath']);
-			$templateFormat   = ($this->emailFormat === 'html' ? 'html' : 'txt');
-			$templateFilename = $templateRootPath . 'Email/' . $templateName . '.' . $templateFormat;
+			$rootPath = t3lib_div::getFileAbsFileName($this->configuration['view']['templateRootPath']);
+			$format   = ($this->emailFormat === 'html' ? 'html' : 'txt');
+			$filename = str_replace(array('@name', '@format'), array(ucfirst($name), $format), $this->templateSchema);
 
 				// Get view
 			$view = $this->objectManager->get('Tx_Fluid_View_StandaloneView');
-			$view->setFormat($templateFormat);
-			$view->setTemplatePathAndFilename($templateFilename);
+			$view->setFormat($format);
+			$view->setTemplatePathAndFilename($rootPath . $filename);
 
 				// Set extension name
 			$extensionName = $this->request->getControllerExtensionName();
@@ -279,7 +286,7 @@
 				// Add variables
 			$variables = (!empty($variables) ? $variables : $this->variables);
 			if (!empty($variables)) {
-				$emailView->assignMultiple($variables);
+				$view->assignMultiple($variables);
 			}
 
 				// Render template

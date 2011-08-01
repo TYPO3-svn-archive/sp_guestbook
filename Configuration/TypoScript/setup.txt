@@ -30,6 +30,12 @@ plugin.tx_spguestbook {
 		partialRootPath           = {$plugin.tx_spguestbook.view.partialRootPath}
 		templateRootPath          = {$plugin.tx_spguestbook.view.templateRootPath}
 	}
+
+	## Persistence specific settings
+	persistence {
+		## Workaround: Map pid to model so it can be set manually in controller
+		classes.Tx_SpGuestbook_Domain_Model_Entry.mapping.columns.pid.mapOnProperty = pid
+	}
 }
 
 

@@ -127,9 +127,16 @@
 		 * @return void
 		 */
 		public function createAction(Tx_SpGuestbook_Domain_Model_Entry $newEntry) {
+				// Set pid manually to configured storage page
+			$newEntry->setPid($this->getStoragePageId());
+
+				// Add new record
 			$this->entryRepository->add($newEntry);
 			$this->flashMessageContainer->add('Extension sp_guestbook: New entry was created');
+
+				// Clear list page cache and redirect to it
 			$page = $this->getPageId('listPage');
+			Tx_Extbase_Utility_Cache::clearPageCache($page);
 			$this->redirect('list', NULL, NULL, NULL, (!empty($page) ? $page : NULL));
 		}
 
@@ -159,7 +166,7 @@
 
 		/**
 		 * Returns the ordering of repository result
-		 * 
+		 *
 		 * @return array Ordering
 		 */
 		protected function getOrdering() {
@@ -182,15 +189,50 @@
 		/**
 		 * Returns the ID of configured page
 		 *
-		 * @param string $setting Name of the page in settings
+		 * @param string $settingName Name of the page in settings
 		 * @return integer PID of the page
 		 */
-		protected function getPageId($setting) {
-			if (!empty($setting) && !empty($this->settings[$setting])) {
-				return (int) str_replace('pages_', '', $this->settings[$setting]);
+		protected function getPageId($settingName) {
+			if (!empty($settingName) && !empty($this->settings[$settingName])) {
+				return (int) str_replace('pages_', '', $this->settings[$settingName]);
 			}
 
 			return 0;
+		}
+
+
+		/**
+		 * Returns the storage page of new guestbook entries
+		 *
+		 * @return interger PID of the storage page
+		 */
+		protected function getStoragePageId() {
+				// Get full configuration
+			$frameworkConfiguration = $this->configurationManager->getConfiguration(
+				Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
+			);
+			$pluginConfiguration = Tx_SpGuestbook_Utility_TypoScript::getSetup('plugin.tx_spguestbook');
+			$pluginConfiguration = Tx_SpGuestbook_Utility_TypoScript::parse($pluginConfiguration);
+			$configuration = Tx_Extbase_Utility_Arrays::arrayMergeRecursiveOverrule(
+				$frameworkConfiguration, $pluginConfiguration, FALSE, FALSE
+			);
+
+				// Find first appropriate value
+			switch (TRUE) {
+				case (!empty($this->ids['pids']) && is_array($this->ids['pids'])) :
+					$storagePageIds = $this->ids['pids'];
+					break;
+				case (!empty($configuration['persistence']['newRecordStoragePid'])) :
+					$storagePageIds = t3lib_div::intExplode(',', $configuration['persistence']['newRecordStoragePid']);
+					break;
+				case (!empty($configuration['persistence']['storagePid'])) :
+					$storagePageIds = t3lib_div::intExplode(',', $configuration['persistence']['storagePid']);
+					break;
+				default :
+					$storagePageIds = array($GLOBALS['TSFE']->id);
+			}
+
+			return (int) reset($storagePageIds);
 		}
 
 	}
