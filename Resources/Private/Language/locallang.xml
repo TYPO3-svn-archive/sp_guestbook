@@ -6,13 +6,6 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tx_spguestbook_domain_model_entry">Guestbook entry</label>
-			<label index="tx_spguestbook_domain_model_entry.title">Title</label>
-			<label index="tx_spguestbook_domain_model_entry.content">Content</label>
-			<label index="tx_spguestbook_domain_model_user">Guestbook user</label>
-			<label index="tx_spguestbook_domain_model_user.name">Name</label>
-			<label index="tx_spguestbook_domain_model_user.email">Email</label>
-			<label index="tx_spguestbook_domain_model_user.url">URL</label>
 			<label index="newContentElement.wizardItem.title">Guestbook</label>
 			<label index="newContentElement.wizardItem.description">Adds a guestbook to current page.</label>
 
@@ -20,15 +13,16 @@
 			<label index="no_entry_found">No entry found.</label>
 			<label index="create_new_entry">Create new entry.</label>
 			<label index="captcha">Captcha</label>
+			<label index="required">*</label>
+			<label index="create_new">Create new</label>
+
+			<label index="entry.name">Name</label>
+			<label index="entry.email">Email</label>
+			<label index="entry.url">URL</label>
+			<label index="entry.location">Location</label>
+			<label index="entry.content">Content</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="tx_spguestbook_domain_model_entry">Gästebuch-Eintrag</label>
-			<label index="tx_spguestbook_domain_model_entry.title">Titel</label>
-			<label index="tx_spguestbook_domain_model_entry.content">Inhalt</label>
-			<label index="tx_spguestbook_domain_model_user">Gästebuch-Benutzer</label>
-			<label index="tx_spguestbook_domain_model_user.name">Name</label>
-			<label index="tx_spguestbook_domain_model_user.email">E-Mail</label>
-			<label index="tx_spguestbook_domain_model_user.url">URL</label>
 			<label index="newContentElement.wizardItem.title">Gästebuch</label>
 			<label index="newContentElement.wizardItem.description">Fügt der aktuellen Seite ein Gästebuch hinzu.</label>
 
@@ -36,6 +30,14 @@
 			<label index="no_entry_found">Kein Eintrag gefunden.</label>
 			<label index="create_new_entry">Neuen Eintrag erstellen.</label>
 			<label index="captcha">Captcha</label>
+			<label index="required">*</label>
+			<label index="create_new">Erstellen</label>
+
+			<label index="entry.name">Name</label>
+			<label index="entry.email">E-Mail</label>
+			<label index="entry.url">URL</label>
+			<label index="entry.location">Ort</label>
+			<label index="entry.content">Inhalt</label>
 		</languageKey>
 	</data>
 </T3locallang>

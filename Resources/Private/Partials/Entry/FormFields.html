@@ -1,8 +1,15 @@
-<label for="title">
-	<f:translate key="tx_spguestbook_domain_model_entry.title" /> <span class="required">(required)</span>
-</label><br />
-	<f:form.textbox property="title" /><br />
-<label for="text">
-	<f:translate key="tx_spguestbook_domain_model_entry.text" /> <span class="required">(required)</span>
-</label><br />
-	<f:form.textarea property="text" cols="40" rows="15" /><br />
+<!-- name -->
+<label for="name"><f:translate key="entry.name" /><span class="required"><f:translate key="required" /></span></label><br />
+<f:form.textbox property="name" /><br />
+<!-- email -->
+<label for="email"><f:translate key="entry.email" /><span class="required"><f:translate key="required" /></span></label><br />
+<f:form.textbox property="email" /><br />
+<!-- url -->
+<label for="url"><f:translate key="entry.url" /></label><br />
+<f:form.textbox property="url" /><br />
+<!-- location -->
+<label for="location"><f:translate key="entry.location" /></label><br />
+<f:form.textbox property="location" /><br />
+<!-- content -->
+<label for="text"><f:translate key="entry.content" /> <span class="required"><f:translate key="required" /></span></label><br />
+<f:form.textarea property="text" cols="40" rows="15" /><br />
