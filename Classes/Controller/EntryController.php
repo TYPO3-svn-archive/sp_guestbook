@@ -117,6 +117,7 @@
 		 */
 		public function newAction(Tx_SpGuestbook_Domain_Model_Entry $newEntry = NULL) {
 			$this->view->assign('newEntry', $newEntry);
+			Tx_Extbase_Utility_Cache::clearPageCache();
 		}
 
 

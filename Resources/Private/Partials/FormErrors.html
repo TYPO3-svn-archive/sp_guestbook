@@ -1,11 +1,9 @@
 <f:form.errors>
 	<div class="error">
-		{error.message}
 		<f:if condition="{error.propertyName}">
 			<p>
-				<strong>{error.propertyName}</strong>:
 				<f:for each="{error.errors}" as="errorDetail">
-					{errorDetail.message}
+					{errorDetail.message}<br />
 				</f:for>
 			</p>
 		</f:if>

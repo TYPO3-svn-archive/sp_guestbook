@@ -1,0 +1,12 @@
+div.tx-sp-guestbook input,
+div.tx-sp-guestbook textarea {
+	border: 1px solid #7F7F7F;
+	box-shadow: inset 2px 2px 6px #CECECE;
+	margin-bottom: 6px;
+}
+
+div.tx-sp-guestbook input.f3-form-error,
+div.tx-sp-guestbook textarea.f3-form-error {
+	border: 1px solid #FF0000;
+	box-shadow: inset 2px 2px 6px #EECBCB;
+}
