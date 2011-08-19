@@ -34,6 +34,11 @@
 		protected $objectManager;
 
 		/**
+		 * @var Tx_SpGuestbook_Captcha_CaptchaManager
+		 */
+		protected $captchaManager;
+
+		/**
 		 * @var string Partial schema
 		 */
 		protected $partialSchema = 'Captcha/@extension';
@@ -49,14 +54,22 @@
 
 
 		/**
+		 * @param Tx_SpGuestbook_Captcha_CaptchaManager $captchaManager
+		 * @return void
+		 */
+		public function injectCaptchaManager(Tx_SpGuestbook_Captcha_CaptchaManager $captchaManager) {
+			$this->captchaManager = $captchaManager;
+		}
+
+
+		/**
 		 * Returns the html code for the captcha field
 		 *
 		 * @return string Html code
 		 */
 		public function render() {
 				// Get captcha instance
-			$captchaManager = $this->objectManager->get('Tx_SpGuestbook_Captcha_CaptchaManager');
-			$captcha = $captchaManager->getCaptcha();
+			$captcha = $this->captchaManager->getCaptcha();
 
 				// Get partial name
 			$className = get_class($captcha);

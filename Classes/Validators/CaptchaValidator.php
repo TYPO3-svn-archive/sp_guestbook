@@ -33,6 +33,11 @@
 		 */
 		protected $objectManager;
 
+		/**
+		 * @var Tx_SpGuestbook_Captcha_CaptchaManager
+		 */
+		protected $captchaManager;
+
 
 		/**
 		 * @param Tx_Extbase_Object_ObjectManager $objectManager
@@ -44,14 +49,22 @@
 
 
 		/**
+		 * @param Tx_SpGuestbook_Captcha_CaptchaManager $captchaManager
+		 * @return void
+		 */
+		public function injectCaptchaManager(Tx_SpGuestbook_Captcha_CaptchaManager $captchaManager) {
+			$this->captchaManager = $captchaManager;
+		}
+
+
+		/**
 		 * Checks whether the captcha field input is valid or not
 		 * 
 		 * @param string $value Input value
 		 * @return boolean TRUE if input is valid
 		 */
 		public function isValid($value) {
-			$captchaManager = $this->objectManager->get('Tx_SpGuestbook_Captcha_CaptchaManager');
-			return (bool) $captchaManager->getCaptcha()->checkInput($value);
+			return (bool) $this->captchaManager->getCaptcha()->checkInput($value);
 		}
 
 	}
