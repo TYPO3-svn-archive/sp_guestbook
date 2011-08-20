@@ -1,3 +1,5 @@
+{namespace spguestbook=Tx_SpGuestbook_ViewHelpers}
+
 <!-- name -->
 <label for="name"><f:translate key="entry.name" /><span class="required"><f:translate key="required" /></span></label><br />
 <f:form.textbox property="name" /><br />
@@ -13,3 +15,7 @@
 <!-- content -->
 <label for="text"><f:translate key="entry.content" /> <span class="required"><f:translate key="required" /></span></label><br />
 <f:form.textarea property="content" cols="40" rows="8" /><br />
+<f:if condition="{settings.captchaSupport}">
+  <!-- captcha -->
+  <spguestbook:captcha />
+</f:if>

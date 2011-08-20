@@ -36,7 +36,7 @@
 		/**
 		 * @var array
 		 */
-		protected $configuration;
+		protected $settings;
 
 		/**
 		 * @var Tx_SpGuestbook_Captcha_CaptchaInterface
@@ -59,13 +59,15 @@
 
 
 		/**
-		 * Set TypoScript configuration
-		 *
-		 * @param array $configuration TypoScript configuration
+		 * @param Tx_Extbase_Configuration_ConfigurationManager $configurationManager
 		 * @return void
 		 */
-		public function setConfiguration(array $configuration) {
-			$this->configuration = $configuration;
+		public function injectConfigurationManager(Tx_Extbase_Configuration_ConfigurationManager $configurationManager) {
+			$this->configurationManager = $configurationManager;
+			$this->settings = $this->configurationManager->getConfiguration(
+				Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS
+			);
+			$this->settings = Tx_SpGuestbook_Utility_TypoScript::parse($this->settings);
 		}
 
 
@@ -80,12 +82,12 @@
 			}
 
 				// Check if extension is loaded
-			if (empty($this->configuration['captchaSupport']) || !t3lib_extMgm::isLoaded($this->configuration['captchaSupport'])) {
+			if (empty($this->settings['captchaSupport']) || !t3lib_extMgm::isLoaded($this->settings['captchaSupport'])) {
 				throw new Exception('Extension sp_guestbook: No valid captcha extension configured', 1308305987);
 			}
 
 				// Get class name
-			$className = t3lib_div::underscoredToUpperCamelCase($this->configuration['captchaSupport']);
+			$className = t3lib_div::underscoredToUpperCamelCase($this->settings['captchaSupport']);
 			$className = str_replace('@extension', $className, $this->classSchema);
 			if (!class_exists($className)) {
 				throw new Exception('Extension sp_guestbook: No class found for configured captcha extension', 1308305988);

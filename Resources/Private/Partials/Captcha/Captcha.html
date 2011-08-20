@@ -1,8 +1,8 @@
 <f:format.html>{captcha.message}</f:format.html>
 <label for="captcha">
-	<f:translate key="captcha" /> <span class="required">(required)</span>
+	<f:translate key="captcha" /> <span class="required"><f:translate key="required" /></span>
 </label><br />
-	<f:form.textbox name="captcha" /><br />
+	<f:form.textfield name="captcha" required="1" /><br />
 <div class="captcha-image">
 	<f:image src="{captcha.image}" /><br />
 </div>

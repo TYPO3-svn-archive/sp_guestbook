@@ -24,9 +24,9 @@
 	 ********************************************************************/
 
 	/**
-	 * View helper for the "captcha" extension
+	 * Captcha view helper
 	 */
-	class Tx_SpGuestbook_ViewHelpers_CaptchaViewHelper extends Tx_SpGuestbook_ViewHelpers_AbstractViewHelper {
+	class Tx_SpGuestbook_ViewHelpers_CaptchaViewHelper extends Tx_Fluid_ViewHelpers_RenderViewHelper {
 
 		/**
 		 * @var Tx_Extbase_Object_ObjectManager
@@ -77,11 +77,11 @@
 			$partialName = str_replace('@extension', $className, $this->partialSchema);
 
 				// Get template variables
-			$variables = $captcha->getTemplateVariables();
-			$variables = array('captcha' => $variables);
+			$variables = $this->templateVariableContainer->getAll();
+			$variables['captcha'] = $captcha->getTemplateVariables();
 
 				// Render...
-			return $this->renderPartial($partialName, '', $variables);
+			return parent::render(NULL, $partialName, $variables);
 		}
 
 	}

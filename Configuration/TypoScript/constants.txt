@@ -18,7 +18,7 @@ plugin.tx_spguestbook {
 		# cat=Guestbook: General/settings/140; type=string; label=Ordering field: Order results by this table field
 		orderingField = crdate
 
-		# cat=Guestbook: General/settings/150; type=options[, freeCap CAPTCHA (sr_freecap)=sr_freecap, reCAPTCHA (jm_recaptcha)=jm_recaptcha, Captcha Library (captcha)=captcha, MathGuard (mathguard)=mathguard]; label=Captcha support: Enable captcha support for selected extension
+		# cat=Guestbook: General/settings/150; type=options[, freeCap CAPTCHA (sr_freecap)=sr_freecap, Captcha Library (captcha)=captcha]; label=Captcha support: Enable captcha support for selected extension
 		captchaSupport =
 
 		# cat=Guestbook: General/settings/160; type=boolean; label=Admin verification: Enable administrative verification of new entries

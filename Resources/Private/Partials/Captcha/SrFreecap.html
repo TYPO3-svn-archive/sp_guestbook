@@ -1,14 +1,16 @@
+{namespace spguestbook=Tx_SpGuestbook_ViewHelpers}
+
 <f:format.html>{captcha.message}</f:format.html>
 <label for="captcha">
-	<f:translate key="captcha" /> <span class="required">(required)</span>
+	<f:translate key="captcha" /> <span class="required"><f:translate key="required" /></span>
 </label><br />
-	<f:form.textbox name="captcha" /><br />
+	<f:form.textfield name="captcha" required="1" /><br />
 <div class="captcha-image">
-	{captcha.image}
+	<spguestbook:html>{captcha.image}</spguestbook:html>
 </div>
 <div class="captcha-cant-read">
-	{captcha.cantRead}
+	<spguestbook:html>{captcha.cantRead}</spguestbook:html>
 </div>
 <div class="captcha-accessible">
-	{captcha.accessible}
+	<spguestbook:html>{captcha.accessible}</spguestbook:html>
 </div>
