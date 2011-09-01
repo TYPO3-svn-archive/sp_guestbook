@@ -13,6 +13,7 @@
 			<label index="tx_spguestbook_domain_model_entry.location">Location</label>
 			<label index="tx_spguestbook_domain_model_entry.content">Content</label>
 			<label index="tx_spguestbook_domain_model_entry.note">Note</label>
+			<label index="tx_spguestbook_domain_model_entry.catcha">Captcha</label>
 			<label index="tt_content.flexform_pi1.s_def">General</label>
 			<label index="tt_content.flexform_pi1.s_def.type">View type</label>
 			<label index="tt_content.flexform_pi1.s_def.type.list">List</label>
@@ -48,6 +49,7 @@
 			<label index="tx_spguestbook_domain_model_entry.location">Ort</label>
 			<label index="tx_spguestbook_domain_model_entry.content">Inhalt</label>
 			<label index="tx_spguestbook_domain_model_entry.note">Notiz</label>
+			<label index="tx_spguestbook_domain_model_entry.catcha">Captcha</label>
 			<label index="tt_content.flexform_pi1.s_def">Allgemein</label>
 			<label index="tt_content.flexform_pi1.s_def.type">Ansicht</label>
 			<label index="tt_content.flexform_pi1.s_def.type.list">Liste</label>

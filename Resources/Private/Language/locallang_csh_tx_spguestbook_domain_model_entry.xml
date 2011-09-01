@@ -13,6 +13,7 @@
 			<label index="location.description">City / country / office of the author</label>
 			<label index="content.description">Content of the entry</label>
 			<label index="note.description">Internal note</label>
+			<label index="captcha.description">Used captcha</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="name.description">Name des Autors</label>
@@ -21,6 +22,7 @@
 			<label index="location.description">Stadt / Land / Büro des Autors</label>
 			<label index="content.description">Inhalt des Eintrags</label>
 			<label index="note.description">Interne Notiz</label>
+			<label index="captcha.description">Verwendetes Captcha</label>
 		</languageKey>
 	</data>
 </T3locallang>

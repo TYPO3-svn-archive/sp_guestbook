@@ -81,6 +81,13 @@
 		 */
 		protected $userId;
 
+		/**
+		 * Captcha used to create the entry
+		 *
+		 * @var string
+		 */
+		protected $captcha;
+
 
 		/**
 		 * @param string $name
@@ -198,6 +205,23 @@
 		 */
 		public function getUserId() {
 			return $this->userId;
+		}
+
+
+		/**
+		 * @param string $captcha
+		 * @return void
+		 */
+		public function setCaptcha($captcha) {
+			$this->captcha = $captcha;
+		}
+
+
+		/**
+		 * @return string
+		 */
+		public function getCaptcha() {
+			return $this->captcha;
 		}
 
 	}

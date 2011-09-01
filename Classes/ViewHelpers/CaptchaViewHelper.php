@@ -79,6 +79,7 @@
 				// Get template variables
 			$variables = $this->templateVariableContainer->getAll();
 			$variables['captcha'] = $captcha->getTemplateVariables();
+			$this->viewHelperVariableContainer->add('Tx_Fluid_ViewHelpers_FormViewHelper', 'formObject', 'newEntry');
 
 				// Render...
 			return parent::render(NULL, $partialName, $variables);

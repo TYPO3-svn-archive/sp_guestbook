@@ -52,17 +52,14 @@
 
 		// Add plugin to new content element wizard
 	t3lib_extMgm::addPageTSConfig("
-		mod.wizards.newContentElement.wizardItems.plugins {\n
-			elements." . $identifier . " {\n
-				icon        = " . t3lib_extMgm::extRelPath($_EXTKEY) . "Resources/Public/Images/Wizard.gif\n
-				title       = LLL:EXT:" . $_EXTKEY . "/Resources/Private/Language/locallang.xml:newContentElement.wizardItem.title\n
-				description = LLL:EXT:" . $_EXTKEY . "/Resources/Private/Language/locallang.xml:newContentElement.wizardItem.description\n\n
-				tt_content_defValues {\n
-					CType = list\n
-					list_type = " . $identifier . "\n
-				}\n
-			}\n\n
-			show := addToList(" . $identifier . ")\n
-		}
+		mod.wizards.newContentElement.wizardItems.plugins.elements." . $identifier . " {\n
+			icon        = " . t3lib_extMgm::extRelPath($_EXTKEY) . "Resources/Public/Images/Wizard.gif\n
+			title       = LLL:EXT:" . $_EXTKEY . "/Resources/Private/Language/locallang.xml:newContentElement.wizardItem.title\n
+			description = LLL:EXT:" . $_EXTKEY . "/Resources/Private/Language/locallang.xml:newContentElement.wizardItem.description\n\n
+			tt_content_defValues {\n
+				CType = list\n
+				list_type = " . $identifier . "\n
+			}\n
+		}\n
 	");
 ?>

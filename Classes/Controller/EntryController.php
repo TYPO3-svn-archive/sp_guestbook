@@ -130,7 +130,7 @@
 		public function createAction(Tx_SpGuestbook_Domain_Model_Entry $newEntry) {
 				// Set pid manually to configured storage page
 			$newEntry->setPid($this->getStoragePageId());
-
+print_r('<pre>');print_r($newEntry);die('</pre>');
 				// Add new record
 			$this->entryRepository->add($newEntry);
 			$this->flashMessageContainer->add('Extension sp_guestbook: New entry was created');

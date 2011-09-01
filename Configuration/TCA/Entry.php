@@ -6,11 +6,11 @@
 	$TCA['tx_spguestbook_domain_model_entry'] = array(
 		'ctrl'      => $TCA['tx_spguestbook_domain_model_entry']['ctrl'],
 		'interface' => array(
-			'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, email, url, location, content, note',
+			'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, email, url, location, content, note, user_id, captcha',
 		),
 		'types' => array(
 			'1'     => array(
-				'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, email, url, location, content;;2;richtext:rte_transform[flag=rte_enabled|mode=ts];4-4-4, note,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime',
+				'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, email, url, location, content;;2;richtext:rte_transform[flag=rte_enabled|mode=ts];4-4-4, note, user_id, captcha, --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime',
 			),
 		),
 		'palettes' => array(
@@ -154,8 +154,17 @@
 				),
 			),
 			'user_id' => array(
-				'config' => array(
-					'type' => 'passthrough',
+				'exclude'     => 1,
+				'config'      => array(
+					'type'        => 'passthrough',
+				),
+			),
+			'captcha' => array(
+				'exclude'     => 1,
+				'label'       => 'LLL:EXT:sp_guestbook/Resources/Private/Language/locallang_db.xml:tx_spguestbook_domain_model_entry.captcha',
+				'config'      => array(
+					'type'        => 'none',
+					'size'        => 30,
 				),
 			),
 		),

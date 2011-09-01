@@ -21,6 +21,7 @@
 			<label index="entry.url">URL</label>
 			<label index="entry.location">Location</label>
 			<label index="entry.content">Content</label>
+			<label index="entry.captcha">Catcha</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="newContentElement.wizardItem.title">Gästebuch</label>
@@ -38,6 +39,7 @@
 			<label index="entry.url">URL</label>
 			<label index="entry.location">Ort</label>
 			<label index="entry.content">Inhalt</label>
+			<label index="entry.captcha">Catcha</label>
 		</languageKey>
 	</data>
 </T3locallang>
